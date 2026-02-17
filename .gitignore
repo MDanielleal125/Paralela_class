@@ -1,0 +1,11 @@
+# Ejecutables
+*.exe
+
+# DLLs de SFML
+*.dll
+
+# Archivos objeto de compilacion
+*.o
+*.a
+# Carpeta de VS Code (opcional, algunos prefieren subirla)
+.vscode/
