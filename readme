@@ -1,0 +1,19 @@
+Ejecutar el programa en Visual Studio Code
+
+Abre la carpeta del proyecto en Visual Studio Code.
+
+Abre la terminal integrada:
+Terminal → New Terminal  o ctrl + shift + ñ
+
+Compila el archivo C++:
+
+g++ nbody-simple.cpp -o nbody.exe -std=c++17
+
+
+Si el archivo está en otra ruta, usa la ruta completa:
+
+g++ "RUTA_DEL_ARCHIVO\nbody-simple.cpp" -o nbody.exe -std=c++17
+
+Ejecuta el programa:
+
+.\nbody.exe
