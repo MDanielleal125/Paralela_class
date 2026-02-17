@@ -1,0 +1,123 @@
+1. Instalar el compilador C++ (MinGW)
+
+Instala MinGW usando MSYS2 o el instalador oficial que esta en releases git hub
+
+Después de instalar:
+
+agrega la ruta del compilador al PATH (por ejemplo C:\msys64\mingw64\bin)
+
+reinicia Visual Studio Code
+
+Verifica que funciona:
+
+g++ --version
+
+
+Si muestra una versión, ya está listo.
+
+2. Configurar el compilador en Visual Studio Code
+
+Si VS Code marca error en #include <iostream>:
+
+Presiona:
+
+Ctrl + Shift + P
+
+
+Busca:
+
+C/C++: Select IntelliSense Configuration
+
+
+Selecciona el archivo g++.exe del compilador.
+
+3. Instalar Gnuplot (para las gráficas)
+
+Descarga el instalador desde SourceForge.
+
+Durante la instalación:
+
+activa Add application directory to PATH
+
+cuando pregunte el terminal de gráficos, elige wxt (ventana interactiva)
+
+4. Descargar gplot++.h
+
+Descarga el archivo desde el repositorio del proyecto en GitHub.
+
+Guárdalo en la misma carpeta que tu archivo .cpp.
+No requiere instalación adicional.
+
+5. Compilar y ejecutar el programa (desde Visual Studio Code)
+
+Abre la carpeta del proyecto en VS Code.
+
+Abre la terminal integrada:
+
+Terminal → New Terminal
+
+
+Compila:
+
+g++ nbody-simple.cpp -o nbody.exe -std=c++17
+
+
+Si el archivo está en otra carpeta:
+
+g++ "RUTA_COMPLETA\nbody-simple.cpp" -o nbody.exe -std=c++17
+
+
+Ejecuta:
+
+.\nbody.exe
+
+CASO DE USO LIBRERÍA SFML
+1. Descargar los instaladores del proyecto
+
+Desde la sección Releases de tu repositorio descarga e instala:
+
+SFML (o dependencias que hayas publicado)
+
+compilador si lo incluiste
+
+cualquier requisito del proyecto
+
+Instala todo antes de compilar.
+
+2. Preparar SFML
+
+Después de descargar y descomprimir SFML:
+
+Debes tener estas carpetas:
+
+include
+lib
+bin
+
+
+Copia los archivos .dll de bin a:
+
+la carpeta donde estará tu .exe, o
+
+una ruta incluida en el PATH del sistema
+
+Si no copias las DLL, el programa no abrirá la ventana.
+
+3. Compilar el archivo nbody_SFML.cpp
+
+Desde la terminal de Visual Studio Code:
+
+g++ nbody_SFML.cpp -o nbody_SFML.exe ^
+-IC:\SFML\include ^
+-LC:\SFML\lib ^
+-lsfml-graphics -lsfml-window -lsfml-system
+
+
+(Cambia C:\SFML si tu ruta es diferente).
+
+4. Ejecutar el programa
+.\nbody_SFML.exe
+
+Resultado esperado
+
+Se abrirá una ventana gráfica creada con SFML mostrando la simulación.
