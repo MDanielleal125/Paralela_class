@@ -1,19 +1,80 @@
-Ejecutar el programa en Visual Studio Code
+Antes de ejecutar el programa
 
-Abre la carpeta del proyecto en Visual Studio Code.
+Visual Studio Code no compila C++ por sí solo, solo es el editor.
+Para poder ejecutar tu código necesitas:
 
-Abre la terminal integrada:
-Terminal → New Terminal  o ctrl + shift + ñ
+un compilador de C++ instalado (como MinGW)
 
-Compila el archivo C++:
+que VS Code sepa dónde está ese compilador
+
+compilar el archivo desde la terminal
+
+Si #include <iostream> marca error, casi siempre significa que VS Code no encuentra el compilador o sus librerías. Cuando el compilador está bien instalado y configurado, el programa compila sin problema.
+
+Pasos básicos (resumen práctico)
+1. Verifica que el compilador existe
+
+En la terminal de VS Code:
+
+g++ --version
+
+
+Si muestra una versión → todo bien.
+Si no → instala MinGW (o MSYS2) y agrégalo al PATH.
+
+2. Indicarle a VS Code qué compilador usar
+
+Presiona:
+
+Ctrl + Shift + P
+
+
+Busca:
+
+C/C++: Select IntelliSense Configuration
+
+
+Elige el g++.exe que aparezca.
+
+
+Antes de usar las gráficas
+Para que el programa muestre órbitas con gráficos necesitas instalar Gnuplot y el archivo gplot++.h.
+Eso permite que el código dibuje las trayectorias de los planetas automáticamente.
+
+Pasos rápidos
+1. Instalar Gnuplot
+
+Descárgalo desde SourceForge.
+
+Durante la instalación:
+
+activa “Add application directory to PATH”
+
+cuando pregunte el terminal de gráficos, elige wxt (ventana interactiva)
+
+2. Descargar gplot++.h
+
+Descárgalo desde el repositorio en GitHub (proyecto gplotpp).
+
+Guárdalo en la misma carpeta que tu archivo .cpp.
+
+No necesita instalación adicional.
+
+3. Modificar el código
+
+Incluye gplot++.h, guarda las trayectorias de los planetas y al final agrega la parte que genera la gráfica.
+
+
+3. Compilar y ejecutar desde la terminal de VS Code
+
+Compilar:
 
 g++ nbody-simple.cpp -o nbody.exe -std=c++17
-
-
-Si el archivo está en otra ruta, usa la ruta completa:
-
-g++ "RUTA_DEL_ARCHIVO\nbody-simple.cpp" -o nbody.exe -std=c++17
-
-Ejecuta el programa:
+Ejecutar:
 
 .\nbody.exe
+
+
+Si el archivo está en otra carpeta:
+
+g++ "RUTA_COMPLETA\nbody-simple.cpp" -o nbody.exe -std=c++17
